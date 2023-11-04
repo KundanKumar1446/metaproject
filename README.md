@@ -1,29 +1,27 @@
 # metaproject
 # MyToken Smart Contract
 
-## Overview
-This repository contains a simple Ethereum smart contract written in Solidity implementing a basic token contract following some of the ERC-20 token standards.
+Overview
+This repository contains a simple Ethereum smart contract written in Solidity. The contract implements basic token functionality, allowing for the creation (minting) and destruction (burning) of tokens. This contract includes the following key components:
 
-The contract allows for the creation, destruction, and tracking of tokens, managed by a set of functions.
+Token Information:
 
-## Contract Details
-The contract named `MyToken` comprises the following key components:
+tokenName: A public string variable representing the name of the token. It is initialized as "Kundan".
+tokenSymbol: A public string variable representing the symbol of the token. It is initialized as "Kumar".
+Token Amount:
 
-- *Token Information:*
-  - `token_name`: A public string variable representing the name of the token. Initialized as "Kundan".
-  - `token_symbol`: A public string variable representing the symbol of the token. Initialized as "Kumar".
+totalSupply: A public unsigned integer variable storing the total supply of tokens in circulation. It is initialized with 0.
+balances: A mapping associating Ethereum addresses with their token balances.
+Token Operations:
 
-- *Token Amount:*
-  - `total_amt`: A public unsigned integer variable storing the total amount of tokens in circulation. Initialized with 0.
-  - `amount`: A mapping associating Ethereum addresses with their token balances.
-
-- *Token Operations:*
-  - `mint`: Function for creating (minting) new tokens and assigning them to a specific address.
-  - `burn`: Function for destroying (burning) existing tokens associated with a specific address.
-
-## Usage
+mint: Function for creating (minting) new tokens and assigning them to a specific recipient.
+burn: Function for destroying (burning) existing tokens associated with a specific address.
+Usage
 This smart contract provides basic functionalities for token creation and destruction. Users can mint new tokens or burn existing tokens. Care should be taken to ensure that the user invoking these functions has the necessary permissions.
 
-### Functions
-- `mint(address _address, uint _value)`: Mint `_value` tokens and assign them to `_address`.
-- `burn(address _address, uint _value)`: Burn `_value` tokens associated with `_address`.
+Functions
+mint(address recipient, uint amount)
+Mint amount tokens and assign them to recipient.
+
+burn(address from, uint amount)
+Burn amount tokens associated with from if the sender's balance is sufficient.
